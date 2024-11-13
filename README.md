@@ -36,3 +36,7 @@ $ pwd
 
 ![](resources/images/3.png)
 
+```bash
+user@WIN-CVKT899RCS2 MINGW64 ~
+$ cd ~
+```
