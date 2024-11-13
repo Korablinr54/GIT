@@ -11,7 +11,8 @@
 ```$``` команда покажет ваше местоположение в данный момент.
 ![](resources/images/2.png)
 
-bash
 ```
-pwd
+user@WIN-CVKT899RCS2 MINGW64 ~
+$ pwd
+/c/Users/user
 ```
