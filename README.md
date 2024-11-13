@@ -14,9 +14,10 @@
 ```bash
 user@WIN-CVKT899RCS2 MINGW64 ~
 $ pwd
-/c/Users/user
-  
+/c/Users/user  
 ```
+
+  
 ```
 Операционные системы Windows, Linux и macOS имеют разные файловые системы.
 * Windows: пути начинаются с буквы диска, например, C:.
