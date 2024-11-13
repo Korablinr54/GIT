@@ -1,4 +1,4 @@
 # GIT
 
 После запуска GIT Bash на экране будет отображено нечто в этом роде.
-![Описание изображения](resources/images/1.jpg)
+![](resources/images/1.jpg)
