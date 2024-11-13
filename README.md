@@ -10,7 +10,8 @@
 ### pwd - где я?  
 ```pwd``` команда покажет ваше местоположение в данный момент.  
   
-*(от англ. print working directory — «показать рабочую папку»)*
+*(от англ. print working directory — «показать рабочую папку»)*  
+
 ![](resources/images/2.png)
 
 ```bash
