@@ -73,3 +73,17 @@ $
 ```
 
 Чтобы вернуться на урвоень выше нужно использовать ```..``` - две точки.
+![](resources/images/6.png)  
+
+```bash
+user@WIN-CVKT899RCS2 MINGW64 ~/git/git example
+$ pwd
+/c/Users/user/git/git example      -- сейчас мы здесь
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git/git example
+$ cd ..                            -- используем ..
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ pwd
+/c/Users/user/git                  -- перешли на уровень выше
+```
