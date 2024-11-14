@@ -45,7 +45,7 @@ $ cd ~
 ### ls - вывести содержимое директории
 *(от англ. list directory contents — «отобразить содержимое директории»)*  
 
-![](resources/images/4.png)  
+<img src="resources/images/4.png" alt="Описание изображения" width="50%">
 
 ```bash
 user@WIN-CVKT899RCS2 MINGW64 ~
@@ -63,8 +63,7 @@ $ ls
 Важно!
 если в названии папки есть пробелы, при вводе нужно использовать кавычки.
 ```
-![](resources/images/5.png)  
-<img src="resources/images/5.jpg" alt="Описание изображения" width="50%">
+<img src="resources/images/5.png" alt="Описание изображения" width="50%">
 
 ```bash
 user@WIN-CVKT899RCS2 MINGW64 ~/git
@@ -76,7 +75,7 @@ $
 
 Чтобы вернуться на урвоень выше нужно использовать ```..``` - две точки.  
 
-<img src="resources/images/6.jpg" alt="Описание изображения" width="50%">  
+<img src="resources/images/6.png" alt="Описание изображения" width="50%">  
 
 ```bash
 user@WIN-CVKT899RCS2 MINGW64 ~/git/git example
