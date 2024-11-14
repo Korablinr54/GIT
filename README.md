@@ -67,7 +67,7 @@ ___
 ```bash
 user@WIN-CVKT899RCS2 MINGW64 ~/git
 $ cd "git example"
-```
+```  
 
 Чтобы вернуться на урвоень выше нужно использовать ```..``` - две точки.  
 
@@ -82,4 +82,19 @@ $ cd ..                            -- используем ..
 user@WIN-CVKT899RCS2 MINGW64 ~/git
 $ pwd
 /c/Users/user/git                  -- перешли на уровень выше
+```
+
+Чтобы обратиться к текущей директории, например, для запуска скрипта нужно использовать символ точки ```.```
+
+```bash
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ pwd
+/c/Users/user/git                  -- сейчас мы здесь
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ cd .                             -- используем точку
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ pwd
+/c/Users/user/git                  -- ничего не изменилось
 ```
