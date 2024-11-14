@@ -60,11 +60,7 @@ $ ls
 ```bash
 user@WIN-CVKT899RCS2 MINGW64 ~/git
 $ cd "git example"
-
-user@WIN-CVKT899RCS2 MINGW64 ~/git/git example
-$
 ```
-
 
 Чтобы вернуться на урвоень выше нужно использовать ```..``` - две точки.  
 
