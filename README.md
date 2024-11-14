@@ -42,3 +42,16 @@ $ cd ~
 ```
 
 ## Навигация в командной строке
+### ls - вывести содержимое директории
+*(от англ. list directory contents — «отобразить содержимое директории»)*  
+
+![](resources/images/4.png)  
+
+```bash
+user@WIN-CVKT899RCS2 MINGW64 ~
+$ cd git
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ ls
+1.png.bmp  2.png.bmp  3.png.bmp
+```
