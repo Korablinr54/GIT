@@ -64,6 +64,9 @@ $ ls
 если в названии папки есть пробелы, при вводе нужно использовать кавычки.
 ```
 ![](resources/images/5.png)  
+<div style="width: 50%;">
+    <img src="resources/images/5.jpg" alt="Описание изображения" style="width: 100%;">
+</div>
 
 ```bash
 user@WIN-CVKT899RCS2 MINGW64 ~/git
