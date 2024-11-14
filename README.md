@@ -12,8 +12,6 @@
   
 *(от англ. print working directory — «показать рабочую папку»)*  
 
-![](resources/images/2.png)
-
 ```bash
 user@WIN-CVKT899RCS2 MINGW64 ~
 $ pwd
@@ -34,8 +32,6 @@ $ pwd
 
 *(от англ. change directory — «сменить директорию»)*   
 
-![](resources/images/3.png)
-
 ```bash
 user@WIN-CVKT899RCS2 MINGW64 ~
 $ cd ~
@@ -44,8 +40,6 @@ $ cd ~
 ## Навигация в командной строке
 ### ls - вывести содержимое директории
 *(от англ. list directory contents — «отобразить содержимое директории»)*  
-
-<img src="resources/images/4.png" alt="Описание изображения" width="50%">
 
 ```bash
 user@WIN-CVKT899RCS2 MINGW64 ~
@@ -63,8 +57,6 @@ $ ls
 Важно!
 если в названии папки есть пробелы, при вводе нужно использовать кавычки.
 ```
-<img src="resources/images/5.png" alt="Описание изображения" width="50%">
-
 ```bash
 user@WIN-CVKT899RCS2 MINGW64 ~/git
 $ cd "git example"
@@ -72,10 +64,9 @@ $ cd "git example"
 user@WIN-CVKT899RCS2 MINGW64 ~/git/git example
 $
 ```
----
-Чтобы вернуться на урвоень выше нужно использовать ```..``` - две точки.  
 
-<img src="resources/images/6.png" alt="Описание изображения" width="50%">  
+
+Чтобы вернуться на урвоень выше нужно использовать ```..``` - две точки.  
 
 ```bash
 user@WIN-CVKT899RCS2 MINGW64 ~/git/git example
