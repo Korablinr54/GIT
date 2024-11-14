@@ -148,5 +148,6 @@ Folder/  Text.txt.txt  image.bmp.bmp   # список файлов в текущ
 user@WIN-CVKT899RCS2 MINGW64 ~/git/git example
 $ ls ..                                # вернем содержимое вышестоящей директории не меняя текущую
  1.png.bmp   2.png.bmp   3.png.bmp  'git example'/
+```
 
 ```
