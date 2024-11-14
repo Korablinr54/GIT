@@ -72,7 +72,7 @@ $ cd "git example"
 user@WIN-CVKT899RCS2 MINGW64 ~/git/git example
 $
 ```
-
+---
 Чтобы вернуться на урвоень выше нужно использовать ```..``` - две точки.  
 
 <img src="resources/images/6.png" alt="Описание изображения" width="50%">  
