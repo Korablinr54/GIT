@@ -55,3 +55,21 @@ user@WIN-CVKT899RCS2 MINGW64 ~/git
 $ ls
 1.png.bmp  2.png.bmp  3.png.bmp
 ```
+
+### cd - сменить директорию
+*(от англ. change directory — «сменить директорию»)*  
+```
+Важно!
+если в названии папки есть пробелы, при вводе нужно использовать кавычки.
+```
+![](resources/images/5.png)  
+
+```bash
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ cd "git example"
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git/git example
+$
+```
+
+Чтобы вернуться на урвоень выше нужно использовать ```..``` - две точки.
