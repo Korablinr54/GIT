@@ -46,7 +46,7 @@ ___
 ### ls - вывести содержимое директории
 *(от англ. list directory contents — «отобразить содержимое директории»)*  
 
-```bash
+```shell
 user@WIN-CVKT899RCS2 MINGW64 ~
 $ cd git
 
