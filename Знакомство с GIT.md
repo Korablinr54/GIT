@@ -177,3 +177,20 @@ $ ls                                  # получаем снова список
 
 ```
 
+## mv - переименовать файл
+*(от англ. move — «двигать, перемещать»)*   
+Синтаксис ``` mv старое имя файла новое имя файла ```  
+
+```bash
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ ls                                # поулчаем список содержимого, видим, что в файле new_text.ttx допущена ошибка в расширении
+ 1.bmp   2.bmp   3.bmp  'git example'/   new_text.ttx
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ mv new_text.ttx new_text.txt      # переименуем файл используя mv 
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ ls                               # снова возвращаем содержимое директории и првоеряем, что ошибка устранена 
+ 1.bmp   2.bmp   3.bmp  'git example'/   new_text.txt
+
+```
