@@ -157,3 +157,23 @@ ___
 <br>
 
 ## Операции с папками и файлами
+
+### touch - создать файл
+
+```bash
+user@WIN-CVKT899RCS2 MINGW64 ~
+$ cd git                              # отправляемся в папку git
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ ls                                  # получаем список содержимого дериктории git
+ 1.bmp   2.bmp   3.bmp  'git example'/
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ touch new_text.ttx                  # используя touch создаем нвоый файл 
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ ls                                  # получаем снова список файлов, видим, что новый файл в директории
+ 1.bmp   2.bmp   3.bmp  'git example'/   new_text.tx
+
+```
+
