@@ -54,6 +54,42 @@ user@WIN-CVKT899RCS2 MINGW64 ~/git
 $ ls
 1.png.bmp  2.png.bmp  3.png.bmp
 ```
+
+Просмотр скрытых файлов в директории.
+ls с опцией -a
+
+```ls```
+```bash
+user@WIN-CVKT899RCS2 MINGW64 ~
+$ ls
+ AppData/
+'Application Data'@
+ Budget.ipynb
+ Contacts/
+...
+```
+<br>
+
+```ls -a```
+```bash
+user@WIN-CVKT899RCS2 MINGW64 ~
+$ ls -a
+ ./            <- скрытые файлы и директории отображены с точкой
+ ../
+ .anaconda/
+ .bash_history 
+ .conda/
+ .condarc
+ .continuum/
+ .idlerc/
+ .ipynb_checkpoints/
+ .ipython/
+ .jupyter/
+ .matplotlib/
+ .virtual_documents/
+ AppData/
+
+```
 ___
 <br>
 
