@@ -416,7 +416,36 @@ user@WIN-CVKT899RCS2 MINGW64 ~/git/new_folder
 $ ls                               # видим там нашу скопированную папку
 1.bmp  folder/
 ```
+<br>
+
+Множественное копирвоание 
+```bash
+user@WIN-CVKT899RCS2 MINGW64 ~/git  <- тут тоже видно где мы сейчас
+$ pwd               # проверяем где мы сейчас 
+/c/Users/user/git
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ ls                # возвращаем содержимое 
+1.bmp  2.bmp  3.bmp  folder/  new_folder/  test_file.txt
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ mkdir images      # создадим папку для наших изображений
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ ls                # папка images/ создана
+1.bmp  2.bmp  3.bmp  folder/  images/  new_folder/  test_file.txt
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ cp 1.bmp 2.bmp 3.bmp images/      # копируем в нее картинки *.bmp
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ cd images         # идем в новую папку
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git/images
+$ ls                # видим, что скопировали разом несклько файлов
+1.bmp  2.bmp  3.bmp
+```
 ___
 <br>
 
-### 
+### mv - перемещение файлов и папок
