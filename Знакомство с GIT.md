@@ -54,6 +54,7 @@ user@WIN-CVKT899RCS2 MINGW64 ~/git
 $ ls
 1.png.bmp  2.png.bmp  3.png.bmp
 ```
+<br>  
 
 Просмотр скрытых файлов в директории.
 ls с опцией -a
