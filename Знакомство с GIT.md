@@ -313,7 +313,7 @@ ___
 Команды ```touch``` и ```mkdir``` по умолчанию создают файлы и папки в текущей рабочей директории.
 <br>
 
-Создание папки или файла в отличнйо от текущей директории
+Создание папки или файла в отличной от текущей директории
 ```bash 
 user@WIN-CVKT899RCS2 MINGW64 ~/git
 $ cd ~                              # возвращаемся в домашнюю директорию
@@ -333,3 +333,45 @@ $ ls                                # получаем список содерж
  1.bmp   3.bmp    'git example'/
  2.bmp   fodler/   test_file.txt
 ```
+<br>
+
+Создание файла с использованием двух точек - ```..```, т.е. на уровень выше.
+```bash
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ mkdir -p level_1/level_2/level_3      # создаем структуру вложенных папок     
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ cd level_1/level_2/level_3            # отправляемся в папку с именем level_3
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git/level_1/level_2/level_3
+$ touch ../../test_file_2.txt           # создаем файл на два уровня выше в текущей струткре
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git/level_1/level_2/level_3
+$ cd ../../                             # отправляемся на два уровня вверх по струтктуре 
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git/level_1
+$ ls                                    # вохвращаем содержимое папки level_1 и видим созданный файл
+level_2/  test_file_2.txt
+```
+<br>
+
+Создание файла или папки в домашней директории.
+```bash
+user@WIN-CVKT899RCS2 MINGW64 ~/git/level_1
+$ mkdir ~/TEST_FOLDER                   # используя ~/ через mkdir создадим папку в домашней директории 
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git/level_1
+$ cd ~                                  # отправлдяемся в домашнюю директорию
+
+user@WIN-CVKT899RCS2 MINGW64 ~
+$ ls                                    # првоеряемсодержимое домашней директории, видим созданную папку
+
+...
+ TEST_FOLDER/
+...
+```
+___
+<br>
+
+### cp - копирование 
