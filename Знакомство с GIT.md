@@ -264,7 +264,8 @@ ___
 ### rmdir - удалить пустую директорию
 ```
 Важно!
-rmdir удаляет только пустые папки. для удаления директорий с содержимым используется rm -r
+rmdir удаляет только пустые папки.
+Для удаления директорий с содержимым используется rm -r
 ```
 <br>
 
@@ -281,4 +282,25 @@ user@WIN-CVKT899RCS2 MINGW64 ~/git
 $ ls                                # првоеряем, папка удален
  1.bmp   2.bmp   3.bmp   folder/  'git example'/
 
+```
+___
+<br>
+
+### rm -r - удалить не пустую директорию
+```bash
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ ls                                # возвращаем список файлов в директории
+ 1.bmp   2.bmp   3.bmp   folder/  'git example'/
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ rmdir folder                      # пытаемся удалить папку и поулчаем ошибку  
+rmdir: failed to remove 'folder': Directory not empty
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ rm -r folder                      # использум для удаления rm -r 
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ ls                                # проверяем, директория с содержимым удалена
+ 1.bmp   2.bmp   3.bmp  'git example'/
 ```
