@@ -179,9 +179,9 @@ $ ls                                  # получаем снова список
 ___
 <br>
 
-### mv - переименовать файл
+### mv - переименовать файл/директорию
 *(от англ. move — «двигать, перемещать»)*   
-Синтаксис ``` mv старое имя файла новое имя файла ```  
+Синтаксис ``` mv старое имя файла новое имя файла или папки ```  
 
 ```bash
 user@WIN-CVKT899RCS2 MINGW64 ~/git
@@ -257,4 +257,22 @@ user@WIN-CVKT899RCS2 MINGW64 ~/git
 $ ls                                   # проверяем, структура создана
  1.bmp   3.bmp      'git example'/
  2.bmp   folder_1/   new_folder/
+```
+___
+<br>
+
+### rmdir - удалить директорию
+```bash
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git  # находимся в директории git
+$ ls                                # получаем содержимое текущей директории
+ 1.bmp   2.bmp   3.bmp   folder/  'git example'/   new_folder/
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ rmdir new_folder                  # удаляем папку
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ ls                                # првоеряем, папка удален
+ 1.bmp   2.bmp   3.bmp   folder/  'git example'/
+
 ```
