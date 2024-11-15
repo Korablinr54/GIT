@@ -306,3 +306,30 @@ user@WIN-CVKT899RCS2 MINGW64 ~/git
 $ ls                                # проверяем, директория с содержимым удалена
  1.bmp   2.bmp   3.bmp  'git example'/
 ```
+___
+<br>
+
+### Еще про создание файлов и папок
+Команды ```touch``` и ```mkdir``` по умолчанию создают файлы и папки в текущей рабочей директории.
+<br>
+
+Создание папки или файла в отличнйо от текущей директории
+```bash 
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ cd ~                              # возвращаемся в домашнюю директорию
+
+user@WIN-CVKT899RCS2 MINGW64 ~
+$ pwd                               # проверяем, где мы находимся  
+/c/Users/user
+
+user@WIN-CVKT899RCS2 MINGW64 ~
+$ touch git/test_file.txt           # создаем в директории git файл test_file.txt
+
+user@WIN-CVKT899RCS2 MINGW64 ~
+$ cd git                            # идем в директорию git 
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ ls                                # получаем список содержимого, видим,созданный файл 
+ 1.bmp   3.bmp    'git example'/
+ 2.bmp   fodler/   test_file.txt
+```
