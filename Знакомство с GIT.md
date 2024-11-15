@@ -395,3 +395,21 @@ user@WIN-CVKT899RCS2 MINGW64 ~/git/folder
 $ ls                                 # возвращаем содержимое папки и видим наш скопированный файл 
 test_file.txt
 ```
+<br>
+
+Копирвоание папки ```cp -r```
+```bash
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ ls                               # возвращаем содержимое такущей директории                           
+1.bmp  2.bmp  3.bmp  folder/  new_folder/  test_file.txt
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ cp -r folder/ new_folder/        # скопируем папку folder/ в new_folder/
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ cd new_folder/                   # отправляемся в new_folder/
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git/new_folder
+$ ls                               # видим там нашу скопированную папку
+1.bmp  folder/
+```
