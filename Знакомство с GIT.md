@@ -449,3 +449,65 @@ ___
 <br>
 
 ### mv - перемещение файлов и папок
+<br>
+
+Перемещение файлов
+```bash
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ ls                  # возвращаем содержимое текущей директории
+1.bmp  2.bmp  3.bmp  folder/  images/  new_folder/  test_file.txt
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ rm -r images        # удаляем папку images/
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ ls                  # снова возвращаем список, убеждаемся, что папку удалили
+1.bmp  2.bmp  3.bmp  folder/  new_folder/  test_file.txt
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ mkdir kartinki      # создаем новую папку kartinki
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ ls                  # убеждаемся, что папка создана
+1.bmp  2.bmp  3.bmp  folder/  kartinki/  new_folder/  test_file.txt
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ mv 1.bmp 2.bmp 3.bmp kartinki  # перемещаем сразу несколько файлов в новую папку
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ ls                  # смотрим, что файлов *.bmp в текущей директории нет
+folder/  kartinki/  new_folder/  test_file.txt
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ cd kartinki         # идем в созданную папку
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git/kartinki
+$ ls                  # првоеряем, что переместили корректно
+1.bmp  2.bmp  3.bmp
+```
+<br>
+
+Перемещение папок
+```bash
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ ls                            # возвращаем список содержимого текущей директории
+folder/  kartinki/  new_folder/  test_file.txt
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ mv kartinki/ new_folder/      # перемещаем папку kartinki/ в new_folder/
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ ls                            # првоеряем, что перемещаемая папка из текущей директории счезла
+folder/  new_folder/  test_file.txt
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git
+$ cd new_folder                 # отправляемся в папку, куда перемещали 
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git/new_folder
+$ ls                            # убеждаемся, что папку переместили корректно
+1.bmp  folder/  kartinki/
+```
+___
+<br>
+
+### 
