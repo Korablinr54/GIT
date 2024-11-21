@@ -2,7 +2,7 @@
 
 ### Команды BASH
 
-```pwd``` - показать путь к текущей папке (*p*rint *w*orking *d*irectory).  
+```pwd``` - показать путь к текущей папке (**p**rint **w**orking **d**irectory).  
 
 
 ### Команды GIT
