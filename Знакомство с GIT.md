@@ -569,3 +569,24 @@ $ cat example_text_file.txt     # читаем файл
 Синий
 Фиолетовый
 ```
+
+#### less - постраничный просмотр
+Команда ```less``` позволяет просматривать содержимое файла постранично.
+```bash
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git/resources (main)
+$ less example_text_file.txt
+```
+
+#### head / tail 
+head / tail выводит первые / последние несколько строк файла (по умолчанию 10).   
+```bash
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git/resources (main)
+$ head example_text_file.txt
+Красный
+Оранжевый
+Желтый
+Зеленый
+Синий
+Фиолетовый
+```
+### Удаление файлов и папок — ```rm```, ```rmdir```, ```rm -r```
