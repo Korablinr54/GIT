@@ -589,4 +589,81 @@ $ head example_text_file.txt
 Синий
 Фиолетовый
 ```
-### Удаление файлов и папок — ```rm```, ```rmdir```, ```rm -r```
+## Удаление файлов и папок — ```rm```, ```rmdir```, ```rm -r```
+
+### Удаление файла
+Чтобы удалить файл, используйте команду `rm` (от англ. *remove* — «удалить»). После команды укажите имя файла, который хотите удалить.
+
+```bash
+user@WIN-CVKT899RCS2 MINGW64 /d
+$ cd del_dir        -- переходим в папку, в которой далим файл
+
+user@WIN-CVKT899RCS2 MINGW64 /d/del_dir
+$ ls                -- смотрим наличие файла
+del_file.txt
+
+user@WIN-CVKT899RCS2 MINGW64 /d/del_dir
+$ rm 'del_file.txt' -- удаляем файл del_file.txt
+
+user@WIN-CVKT899RCS2 MINGW64 /d/del_dir
+$ ls                -- проверяем удаление
+
+user@WIN-CVKT899RCS2 MINGW64 /d/del_dir
+$                   -- файла больше нет
+```
+
+### Удаление пустой папки
+Для удаления пустой папки применяется команда rmdir (от англ. remove directory — «удалить директорию»). Укажите имя папки, которую хотите удалить.
+
+```Bash
+user@WIN-CVKT899RCS2 MINGW64 /d
+$ ls               -- проверяем наличие папки для удаления
+'$RECYCLE.BIN'/   Other/                        del_dir/        
+ Downloads/      'Program Files'/               msdownld.tmp/
+ GIT/            'Program Files (x86)'/         Аудиокниги/
+ Games/          'System Volume Information'/   Видео/
+
+user@WIN-CVKT899RCS2 MINGW64 /d
+$ rmdir 'del_dir'  -- Удаляем папку
+
+user@WIN-CVKT899RCS2 MINGW64 /d
+$ ls               -- Проверяем. Папка удалена
+'$RECYCLE.BIN'/   Games/           'Program Files (x86)'/         Аудиокниги/
+ Downloads/       Other/           'System Volume Information'/   Видео/
+ GIT/            'Program Files'/   msdownld.tmp/                 
+```
+
+### Удаление непустой папки
+```Bash
+user@WIN-CVKT899RCS2 MINGW64 /d
+$ rmdir not_epmty_folder    -- пытаемся удалить папку с файлом
+rmdir: failed to remove 'not_epmty_folder': Directory not empty  -- папка не пуста
+
+user@WIN-CVKT899RCS2 MINGW64 /d
+$ rm -r not_epmty_folder    -- удаляем с использованием флага -r
+
+user@WIN-CVKT899RCS2 MINGW64 /d
+$ ls                        -- првоеряем. Папка удалена
+'$RECYCLE.BIN'/   Games/           'Program Files (x86)'/         Аудиокниги/
+ Downloads/       Other/           'System Volume Information'/   Видео/
+ GIT/            'Program Files'/   msdownld.tmp/                 
+
+```
+Команда ```rm -r``` выполняет рекурсивное удаление:  
+* Удаляются все файлы и подпапки внутри указанной директории;    
+* После очистки содержимого удаляется сама папка.  
+
+## Эффективная работа с командной строкой
+### Одновременное выполнение нескольких команд
+```BASH
+user@WIN-CVKT899RCS2 MINGW64 ~
+$ mkdir d:/test && cd d:/test && touch test.txt
+
+-- создаем директорию, переходим в нее и создаем в ней файл
+
+user@WIN-CVKT899RCS2 MINGW64 /d/test
+$ ls
+test.txt
+
+-- проверяем
+```
