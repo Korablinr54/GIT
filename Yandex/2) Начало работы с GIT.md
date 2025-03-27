@@ -91,4 +91,66 @@ Untracked files:
 nothing added to commit but untracked files present (use "git add" to track)
 ```
 
-Git сообщит, что в папке ```yandex``` есть ```untracked files``` — ещё не отслеживаемые файлы readme.txt и todo.txt.
+Git сообщит, что в папке ```yandex``` есть ```untracked files``` — ещё не отслеживаемые файлы readme.txt и todo.txt.  
+
+Добвляем файлы, чтобы отслеживать состояние обоих.  
+```Bash
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git/yandex (main)
+$ git add todo.txt && git add readme.txt
+# добавляем файлы
+
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git/yandex (main)
+$ git status
+# проверяем статус
+
+On branch main  
+Your branch is up to date with 'origin/main'.  
+Changes to be committed:  
+  (use "git restore --staged <file>..." to unstage)  
+        new file:   readme.txt  
+        new file:   todo.txt 
+```
+
+Теперь файлы отслеживаются и готовы к сохранению. Но сохранения пока не произошло, потому что команда git add только запоминает текущее содержимое (контент) файла.
+
+Команда ```git add``` не сохраняет содержимое файлов в репозитории. Само сохранение, или фиксацию состояния файлов, называют коммитом (от англ. commit — «совершать», «фиксировать»). «Сделать коммит» значит сохранить текущую версию файла.  
+ Если провести аналогию, команду ```git add``` можно сравнить с добавлением товаров в корзину в интернет-магазине, а коммит — с оформлением и оплатой заказа.
+
+ Если сейчас отредактировать любой из «зелёных» файлов в папке first-project, он перейдёт в состояние modified (англ. «изменённый») и будет и в «зелёном», и в «красном» списках.   
+ Например, откройте файл todo.txt в любом редакторе (подойдёт даже блокнот) и напишите в нём: 1. Пройти пару уроков по Git.  
+
+```Bash
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git/yandex (main)
+$ git status
+# проверяем статус после внесения изменения в файл
+
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   todo.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+```  
+
+Красным отмечена версия с текстом 1. Пройти пару уроков по Git.
+Чтобы запомнить новое состояние файла, нужно снова ввести команду git add и передать в качестве параметра имя изменённого файла.  
+
+```Bash
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git/yandex (main)
+$ git add todo.txt
+# добавляем обновленный файл
+
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git/yandex (main)
+$ git status
+# првоеряем статус
+
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   todo.txt # файл изменен
+```
