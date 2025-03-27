@@ -56,3 +56,39 @@ nothing to commit (create/copy files and use "git add" to track)
 # прежде чем коммитить нужно что-то для начала создать
 ```
 ## Добавляем файлы в репозиторий
+
+```Bash
+user@WIN-CVKT899RCS2 MINGW64 ~
+$ cd /d/git/git/yandex
+# идем в папку с репозиторием
+
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git/yandex (main)
+$ ls
+# смотрим на содержимое
+'1) Знакомство с GIT.md'  '2) Начало работы с GIT.md'
+
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git/yandex (main)
+$ touch todo.txt && touch readme.txt
+# создаем два файла
+
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git/yandex (main)
+$ ls
+# убеждаемся, что файлы созданы
+'1) Знакомство с GIT.md'      readme.txt
+'2) Начало работы с GIT.md'   todo.txt
+
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git/yandex (main)
+$ git status
+# проверяем статус репозитория
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        readme.txt
+        todo.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+```
+
+Git сообщит, что в папке ```yandex``` есть ```untracked files``` — ещё не отслеживаемые файлы readme.txt и todo.txt.
