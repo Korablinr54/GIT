@@ -166,4 +166,5 @@ Changes to be committed:
 $ git commit -m 'Добавляем файлы в репозиторий'
 ```
 
+## Ещё раз о разнице между ```git add``` и ```git commit```  
 
