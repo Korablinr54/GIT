@@ -184,19 +184,19 @@ Date:   Thu Mar 27 21:26:38 2025 +0700
     Добавляем файлы в репозиторий 3
 
 commit 09cbc0bb06006964eb34601fa2d621e166e8a560
-Author: Korablin Roman <<*****@gmail.com>
+Author: Korablin Roman <*****@gmail.com>
 Date:   Thu Mar 27 21:26:12 2025 +0700
 
     Добавляем файлы в репозиторий 2
 
 commit f42bd56d333f9fa44556b350c0446c41bd379aec
-Author: Korablin Roman <<*****@gmail.com>
+Author: Korablin Roman <*****@gmail.com>
 Date:   Thu Mar 27 21:14:30 2025 +0700
 
     Добавляем файлы в репозиторий 1
 
 commit 32d81676a0ffbfb27c122df7fc20f8f6595745de
-Author: Korablin Roman <<*****@gmail.com>
+Author: Korablin Roman <*****@gmail.com>
 Date:   Sun Mar 23 20:43:21 2025 +0700
 ```
 
