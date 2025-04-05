@@ -167,4 +167,36 @@ $ git commit -m 'Добавляем файлы в репозиторий'
 ```
 
 ## Ещё раз о разнице между ```git add``` и ```git commit```  
+Сначала команда ```git add``` сообщает Git, какие именно файлы нужно сохранить и какую их версию. Затем с помощью команды ```git commit``` происходит само сохранение.   
+
+## Просматриваем историю коммитов  
+
+Просмотреть историю коммитов — ```git log```  
+Обратите внимание, что по умолчанию git log выводит коммиты в обратном хронологическом порядке — последние коммиты оказываются первыми сверху. В этом можно убедиться, если посмотреть на дату и время их создания.   
+
+```Bash
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git/yandex (main)
+$ git log
+commit ab38203710c162a75d51aad3e918f3fc1a265334 (HEAD -> main, origin/main, origin/HEAD)
+Author: Korablin Roman <*****@gmail.com>
+Date:   Thu Mar 27 21:26:38 2025 +0700
+
+    Добавляем файлы в репозиторий 3
+
+commit 09cbc0bb06006964eb34601fa2d621e166e8a560
+Author: Korablin Roman <<*****@gmail.com>
+Date:   Thu Mar 27 21:26:12 2025 +0700
+
+    Добавляем файлы в репозиторий 2
+
+commit f42bd56d333f9fa44556b350c0446c41bd379aec
+Author: Korablin Roman <<*****@gmail.com>
+Date:   Thu Mar 27 21:14:30 2025 +0700
+
+    Добавляем файлы в репозиторий 1
+
+commit 32d81676a0ffbfb27c122df7fc20f8f6595745de
+Author: Korablin Roman <<*****@gmail.com>
+Date:   Sun Mar 23 20:43:21 2025 +0700
+```
 
