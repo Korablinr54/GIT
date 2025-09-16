@@ -1,3 +1,6 @@
+![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
+![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
+![Terminal](https://img.shields.io/badge/Terminal-4D4D4D?style=for-the-badge&logo=windows-terminal&logoColor=white)
 # 📚 Репозиторий для изучения Git
 
 Репозиторий посвящен изучению системы контроля версий Git. Здесь собраны примеры, конспекты и обучающие материалы из различных источников:
@@ -189,6 +192,4 @@
 - **`-x`** - удалять файлы, включая те, что указаны в .gitignore
 - **`-X`** - удалять ТОЛЬКО файлы, указанные в .gitignore  
 
-![Git](https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white)
-![GitHub](https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white)
-![Terminal](https://img.shields.io/badge/Terminal-4D4D4D?style=for-the-badge&logo=windows-terminal&logoColor=white)
+
