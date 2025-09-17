@@ -1,4 +1,4 @@
-*.sh linguist-detectable=true
-*.bash linguist-detectable=true
-*.zsh linguist-detectable=true
-**/*.sh linguist-language=Shell
+*.md linguist-detectable=true
+*.md linguist-detectable=true
+*.md linguist-detectable=true
+**/*.md linguist-language=Shell
