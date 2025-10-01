@@ -17,3 +17,52 @@ index 6a0f1e6..f60c61b 100644
 \ No newline at end of file # эта строка была добавлена
 ```
 
+Таким образом команда `git diff` в базовом случае отобразит изменения, которые были внесены но не добавлены в индекс.  
+```bash
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git (main)
+$ git add .
+
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git (main)
+$ git diff
+
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git (main)
+$
+
+# после добавления изменений в индекс команда git diff, в ее базовом варианте перестанет возвращать какую-либо информацию.
+```
+## git diff HEAD
+`git diff HEAD` показывает все изменения по сравнению с последним коммитом, включая как добавленные в индекс, так и нет:  
+```bash
+git diff HEAD
+
+diff --git a/README.md b/README.md
+index 6a0f1e6..f60c61b 100644
+--- a/README.md
++++ b/README.md
+@@ -15,4 +15,6 @@
+
+-- [8. Очистка рабочей директории](./8%20Очистка%20рабочей%20директории/README.md) # последняя строка в старой версии файла README.md
+\ No newline at end of file
++- [8. Очистка рабочей директории](./8%20Очистка%20рабочей%20директории/README.md)
++
++Тестовая строка для првоерки git diff # новая версия файла
+\ No newline at end of file # эта строка была добавлена
+```
+## `git diff --staged`
+`git diff --staged` — показывает изменения, которые уже добавлены в индекс (staging area) и готовы к коммиту.
+```bash
+git diff --staged
+
+diff --git a/README.md b/README.md
+index 6a0f1e6..f60c61b 100644
+--- a/README.md
++++ b/README.md
+@@ -15,4 +15,6 @@
+
+-- [8. Очистка рабочей директории](./8%20Очистка%20рабочей%20директории/README.md) # последняя строка в старой версии файла README.md
+\ No newline at end of file
++- [8. Очистка рабочей директории](./8%20Очистка%20рабочей%20директории/README.md)
++
++Тестовая строка для првоерки git diff # новая версия файла
+\ No newline at end of file # эта строка была добавлена
+```
