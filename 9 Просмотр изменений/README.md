@@ -95,3 +95,42 @@ index 6234a84..7153cb4 100644
 +Тестовая строка для првоерки git diff - изменения # новая строка
 \ No newline at end of file
 ```
+# Просмотр изменений между коммитами
+Давайте использую hash коммитов посомтрим между ними разницу.  
+```bash
+user@WIN-CVKT899RCS2 MINGW64 /d/GIT/GIT (main)
+$ git log --oneline # выведем лог комитов 
+fd8f124 (HEAD -> main, origin/main, origin/HEAD) git diff practice_3
+83f69d9 git diff practice_2
+1b34c2b git diff practice
+9806438 git diff learn
+bbd15b8 x
+52bb25a git diff
+b819a44 new structure
+a6db07d new structure
+88a6792 new structure
+2833ece update
+c37e895 update
+8ac8680 test
+b688f69 git mv
+c652492 test
+
+user@WIN-CVKT899RCS2 MINGW64 /d/GIT/GIT (main)
+$ git diff 1b34c2b 9806438 # посмотрим на разницу между двумя коммитами, выберем их по hash
+
+# информация об изменении
+diff --git a/9 Просмотр изменений/README.md b/9 Просмотр изменений/README.md
+index c63a751..aba99da 100644
+--- a/9 Просмотр изменений/README.md
++++ b/9 Просмотр изменений/README.md
+@@ -17,52 +17,3 @@ index 6a0f1e6..f60c61b 100644
+ \ No newline at end of file # эта строка была добавлена
+ ```
+
+-Таким образом команда `git diff` в базовом случае отобразит изменения, которые были внесены но не добавлены в индекс.
+-```bash
+-user@WIN-CVKT899RCS2 MINGW64 /d/git/git (main)
+-$ git add .
+-
+-user@WIN-CVKT899RCS2 MINGW64 /d/git/git (main)
+```
