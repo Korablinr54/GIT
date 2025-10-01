@@ -1,4 +1,4 @@
-# 06. Откат и восстановление
+# 6. Откат и восстановление
 
 ## Рабочая директория
 | Команда | Синтаксис | Описание |
@@ -36,6 +36,4 @@
 | `git revert старший..младший` | `git revert старший_хеш..младший_хеш` | Отменить диапазон коммитов |
 | `git reflog` | `git reflog` | История перемещений HEAD |
 | `git reset --hard ORIG_HEAD` | `git reset --hard ORIG_HEAD` | Вернуться к состоянию до операции |
-| `git reset --hard <commit_id>` | `git reset --hard <commit_id>` | Вернуться к коммиту из reflог |
-
-
+| `git reset --hard <commit_id>` | `git reset --hard <commit_id>` | Вернуться к коммиту из reflog |

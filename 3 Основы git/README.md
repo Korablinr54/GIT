@@ -1,4 +1,4 @@
-# 03. Основы Git
+# 3. Основы Git
 
 ## Различие между командами терминала и Git
 
@@ -14,6 +14,4 @@
 
 ## Сущности и жизненный цикл файла
 
-Рабочая директория → Индекс (Staging) → Репозиторий (Commits). Состояия: Untracked, Modified, Staged, Unmodified, Committed.
-
-
+Рабочая директория → Индекс (Staging) → Репозиторий (Commits). Состояния: Untracked, Modified, Staged, Unmodified, Committed.
