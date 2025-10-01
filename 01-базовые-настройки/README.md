@@ -1,5 +1,4 @@
-# Команды для первоначальнйо настройки git
-
+# 01. Базовые настройки
 
 | Команда | Описание | Дополнительные флаги/примеры |
 |---------|----------|------------------------------|
@@ -12,4 +11,6 @@
 | `git config --list` | Просмотр всех текущих настроек | `--show-origin` - показывает источник настроек |
 | `git init` | Инициализация нового репозитория | `--bare` - для создания bare-репозитория |
 | `git clone <url>` | Клонирование существующего репозитория | `--depth 1` - поверхностное клонирование |
-| `git config --global core.editor "notepad"` | изменение редактора ввода коммита по умолчанию |  или`git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"` - если нужно использовать notepad++ |
+| `git config --global core.editor "notepad"` | Изменение редактора ввода коммита по умолчанию | или `git config --global core.editor "'C:/Program Files/Notepad++/notepad++.exe' -multiInst -notabbar -nosession -noPlugin"` |
+
+
