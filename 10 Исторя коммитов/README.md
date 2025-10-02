@@ -103,7 +103,7 @@ index e69de29..53ed896 100644
 +^M
 ```
 
-# Ограничить вывод количества коммитов
+# Ограничить вывод количества коммитов: `-p`
 В базовом варианте команда `git log --stat` вернет тстатистику по всем коммитам, но если нам надо посмотреть только 2 последних коммита? Нужно делать так:  
 ```bash
 user@WIN-CVKT899RCS2 MINGW64 /d/git/git (main)
@@ -127,3 +127,27 @@ Date:   Thu Oct 2 16:11:57 2025 +0700
  10 Исторя коммитов/README.md | 29 +++++++++++++++++++++++++++++
  1 file changed, 29 insertions(+)
 ```
+# Визуализация графов: `--graph`
+Ключ `--graph` позволяет вывести коммиты с псевдовизуализацией веток, пока у нас одна ветка, это омжет быть не так полезно:  
+```bash
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git (main)
+$ git log --graph -3
+* commit ed11c5e1c0bdf6ef153520d20e658fed11a92366 (HEAD -> main, origin/main, origin/HEAD)
+| Author: Roman <****@gmail.com>
+| Date:   Thu Oct 2 16:22:26 2025 +0700
+|
+|     git log --stat -2
+|
+* commit c1d881412ab849e7f7ebfba054516b21b5a7949c
+| Author: Roman <****@gmail.com>
+| Date:   Thu Oct 2 16:17:07 2025 +0700
+|
+|     git log -p --stat
+|
+* commit 80d3954ad546956d51835dcef99cb64c67442f93
+| Author: Roman <****@gmail.com>
+| Date:   Thu Oct 2 16:11:57 2025 +0700
+|
+|     git log --stat
+```
+Как видим, по левой кромке сообщений видна как бы ветка или линия коммитов.  
