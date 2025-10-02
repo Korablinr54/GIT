@@ -102,3 +102,28 @@ index e69de29..53ed896 100644
 +Date:   Thu Oct 2 15:18:53 2025 +0700^M
 +^M
 ```
+
+# Ограничить вывод количества коммитов
+В базовом варианте команда `git log --stat` вернет тстатистику по всем коммитам, но если нам надо посмотреть только 2 последних коммита? Нужно делать так:  
+```bash
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git (main)
+$ git log --stat -2
+commit c1d881412ab849e7f7ebfba054516b21b5a7949c (HEAD -> main, origin/main, origin/HEAD)
+Author: Roman <******@gmail.com>
+Date:   Thu Oct 2 16:17:07 2025 +0700
+
+    git log -p --stat
+
+ 10 Исторя коммитов/README.md |  75 +++++++++++
+ ertions(+)                   | 314 +++++++++++++++++++++++++++++++++++++++++++
+ 2 files changed, 389 insertions(+)
+
+commit 80d3954ad546956d51835dcef99cb64c67442f93
+Author: Roman <******@gmail.com>
+Date:   Thu Oct 2 16:11:57 2025 +0700
+
+    git log --stat
+
+ 10 Исторя коммитов/README.md | 29 +++++++++++++++++++++++++++++
+ 1 file changed, 29 insertions(+)
+```
