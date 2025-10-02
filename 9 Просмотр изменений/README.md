@@ -148,7 +148,7 @@ index dd361af..1d1a1fc 100644
 ```bash
 $ git show #
 commit ea8d799532165654fab5e68c4aa40808b5da5410 (HEAD -> main, origin/main, origin/HEAD)
-Author: Korablin Roman <korablinr22@gmail.com>
+Author: *** Roman <***@gmail.com>
 Date:   Wed Oct 1 20:30:59 2025 +0700
 
     git diff practice_5
@@ -208,7 +208,7 @@ git show abc123..def456
 ```bash
 $ git show head^ --name-only # вместо head^ можем указать hash
 commit 69b0b63459a4c244b2127a61b9a37cee7a1e8522
-Author: Korablin Roman <korablinr22@gmail.com>
+Author: ****** Roman <******@gmail.com>
 Date:   Thu Oct 2 14:49:10 2025 +0700
 
     git diff 3
