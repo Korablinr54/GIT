@@ -185,3 +185,22 @@ format26e68e3 - Roman - 2025-10-02 -git log --graph
 formated11c5e - Roman - 2025-10-02 -git log --stat -2
 formatc1d8814 - Roman - 2025-10-02 -git log -p --stat
 ```
+Либо нам надо добавит ьв выод пустые строки для разделения, тоже можно:
+```bash
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git (main)
+$  git log --pretty=format"%h - %an - %as - %n - %s %n" -5
+format4cdd758 - Roman - 2025-10-02 -
+ - git log pretty # текст коммита на новой строке
+# пустая строка разделитель
+format90502a7 - Roman - 2025-10-02 -
+ - git log --author
+
+formate6decc5 - Roman - 2025-10-02 -
+ - git log
+
+format26e68e3 - Roman - 2025-10-02 -
+ - git log --graph
+
+formated11c5e - Roman - 2025-10-02 -
+ - git log --stat -2
+```
