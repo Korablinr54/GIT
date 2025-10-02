@@ -141,3 +141,38 @@ index dd361af..1d1a1fc 100644
  \ No newline at end of file
  +Тестовая строка для првоерки git diff - изменения # новая строка
 ```
+
+# Просмотр изменений: `git show`
+В самом базовом варианте команда `git show` вернет аналогичный результат команде `git diff HEAD^ / HEAD~1`.
+```bash
+user@WIN-CVKT899RCS2 MINGW64 /d/GIT/GIT (main)
+$ git show
+commit ea8d799532165654fab5e68c4aa40808b5da5410 (HEAD -> main, origin/main, origin/HEAD)
+Author: Korablin Roman <korablinr22@gmail.com>
+Date:   Wed Oct 1 20:30:59 2025 +0700
+
+    git diff practice_5
+
+diff --git a/9 Просмотр изменений/README.md b/9 Просмотр изменений/README.md
+index 1d1a1fc..1c41cc1 100644
+--- a/9 Просмотр изменений/README.md
++++ b/9 Просмотр изменений/README.md
+@@ -125,12 +125,19 @@ index c63a751..aba99da 100644
+```
+и
+```bash
+user@WIN-CVKT899RCS2 MINGW64 /d/GIT/GIT (main)
+$ git show
+commit ea8d799532165654fab5e68c4aa40808b5da5410 (HEAD -> main, origin/main, origin/HEAD)
+Author: Korablin Roman <korablinr22@gmail.com>
+Date:   Wed Oct 1 20:30:59 2025 +0700
+
+    git diff practice_5
+
+diff --git a/9 Просмотр изменений/README.md b/9 Просмотр изменений/README.md
+index 1d1a1fc..1c41cc1 100644
+--- a/9 Просмотр изменений/README.md
++++ b/9 Просмотр изменений/README.md
+@@ -125,12 +125,19 @@ index c63a751..aba99da 100644
+```
+Как мы видими `git show` в базовом виде работает по аналогии с `git diff HEAD^ / HEAD~1`.  
