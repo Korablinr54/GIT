@@ -151,3 +151,15 @@ $ git log --graph -3
 |     git log --stat
 ```
 Как видим, по левой кромке сообщений видна как бы ветка или линия коммитов.  
+
+# Просмотр коммитов конкретного файла
+Посмотреть историю по одному конкретному файлу можно передав его имя в команду:
+```bash
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git (main)
+$ git log --oneline '10 Исторя коммитов/README.md' #
+26e68e3 (HEAD -> main, origin/main, origin/HEAD) git log --graph
+ed11c5e git log --stat -2
+c1d8814 git log -p --stat
+80d3954 git log --stat
+f09ee29 10 commit hostory
+```
