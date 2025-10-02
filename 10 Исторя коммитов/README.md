@@ -173,3 +173,15 @@ e6decc5 (HEAD -> main, origin/main, origin/HEAD) git log
 26e68e3 git log --graph
 ed11c5e git log --stat -2
 ```
+
+# Редактирование формата вывода: `pretty`
+В случае, если нам нужно выводить не всю инфомрацию об истории коммитов, а что-то конкретно, например, автора, дату, краткий хэш и сообщение используем такую команду, к слову, `pretty` содержит множество атрибутов, которые лучше смотрет ьв документации:
+```bash
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git (main)
+$  git log --pretty=format"%h - %an - %as -%s" -5
+format90502a7 - Roman - 2025-10-02 -git log --author
+formate6decc5 - Roman - 2025-10-02 -git log
+format26e68e3 - Roman - 2025-10-02 -git log --graph
+formated11c5e - Roman - 2025-10-02 -git log --stat -2
+formatc1d8814 - Roman - 2025-10-02 -git log -p --stat
+```
