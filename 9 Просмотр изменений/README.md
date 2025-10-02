@@ -143,7 +143,7 @@ index dd361af..1d1a1fc 100644
 ```
 
 # Просмотр изменений: `git show`
-В самом базовом варианте команда `git show` вернет аналогичный результат команде `git diff HEAD^ / HEAD~1`.
+В самом базовом варианте команда `git show` вернет аналогичный результат команде `git diff HEAD^ / HEAD~1`.  
 `git show`
 ```bash
 $ git show #
@@ -162,7 +162,8 @@ index 1d1a1fc..1c41cc1 100644
  @@ -17,52 +17,3 @@ index 6a0f1e6..f60c61b 100644
   \ No newline at end of file # эта строка была добавлена
 ```
-и `git diff HEAD~1`
+Небольшое отличие `git show` в том, что вначале вывода будет информаия об авторе, дате и тексте коммита.  
+`git diff HEAD~1`  
 ```bash
 $ git diff HEAD~1
 diff --git a/9 Просмотр изменений/README.md b/9 Просмотр изменений/README.md
