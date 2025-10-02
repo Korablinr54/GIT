@@ -163,3 +163,13 @@ c1d8814 git log -p --stat
 80d3954 git log --stat
 f09ee29 10 commit hostory
 ```
+
+# Просмотр коммитов конкретного автора
+Мы можем посмотреть коммиты конкретного автора. Например, отобразим в кратком виде три последние коммита автора Roman. щапись будет следующая:  
+```bash
+user@WIN-CVKT899RCS2 MINGW64 /d/git/git (main)
+$ git log --author='Roman' --oneline -3
+e6decc5 (HEAD -> main, origin/main, origin/HEAD) git log
+26e68e3 git log --graph
+ed11c5e git log --stat -2
+```
