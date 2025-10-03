@@ -45,7 +45,9 @@ git add -f <file>
 указываем глобальную настройку для пути к файлу .gitignore  
 ```bash
 git config --global core.excludesfile ~/.gitignore_global
-# создаем сам файл по указанному пути
+```
+создаем сам файл по указанному пути
+```bash
 touch ~/.gitignore_global
 ```
 Теперь файл будет применяться ко всем репозиториям
