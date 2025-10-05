@@ -72,5 +72,5 @@ git push -u origin master
 * `origin` — имя нашего удаленного репозитория.  
 * `master` — имя ветки, которую мы отправляем. Внимание! На многих новых репозиториях GitHub по умолчанию создается ветка с именем main. Если у вас main, замените команду на:  
 ```bash
-git push -u origin main
+git push -u origin main 
 ```
