@@ -135,3 +135,23 @@ cat ~/.ssh/id_ed25519.pub
 - В поле Title укажите название (например, "My Laptop")  
 - В поле Key вставьте скопированный публичный ключ
 - Нажмите Add SSH key  
+
+## Шаг 4: Проверка SSH-подключения
+```bash
+# Проверяем подключение к GitHub
+ssh -T git@github.com
+```
+Успешный ответ:
+```
+Hi username! You've successfully authenticated, but GitHub does not provide shell access.
+```
+
+## Шаг 6: Работа с репозиториями через SSH
+```bash
+# Создаем папку для проектов
+mkdir ~/github_via_ssh
+cd ~/github_via_ssh
+
+# Клонируем проект по SSH
+git clone git@github.com:username/repository-name.git
+```
