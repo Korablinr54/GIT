@@ -74,3 +74,28 @@ git push -u origin master
 ```bash
 git push -u origin main 
 ```
+
+# Клонирование репозитория
+Команда git clone создает копию удаленного репозитория (например, с GitHub) на вашем локальном компьютере. При этом копируются все файлы, история коммитов и ветки.  
+
+## Шаг 1: Найдите URL репозитория
+### 1: Перейдите на страницу репозитория на GitHub
+Откройте браузер и зайдите на страницу нужного репозитория (например, `https://github.com/username/repository-name`)
+
+### 2: Скопируйте URL репозитория
+
+## Шаг 2: Выполните команду `git clone`
+### 1: Откройте терминал/командную строку
+```bash
+cd C:\Users\YourName\projects 
+```
+### 2: Выполните команду клонирования
+```bash
+git clone <URL-репозитория>
+
+# HTTPS
+git clone https://github.com/username/repository-name.git
+
+# SSH
+git clone git@github.com:username/repository-name.git
+```
