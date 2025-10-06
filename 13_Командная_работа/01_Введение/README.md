@@ -86,3 +86,54 @@ $ git commit -m 'add the poem' # коммитим
  1 file changed, 34 insertions(+)
  create mode 100644 poem.txt
 ```
+
+<br>
+
+Переключаемся обратно на ветку `master` и видим, что нашего нового файла `poem` нет.
+```sh
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (feature_poem)
+$ git checkout master # переключаемся на ветку master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ ls # файла poem нет
+README.md  
+css/  
+debug.log  
+rare_critical_logs.log  
+web_pages/
+```
+
+<br>
+
+Для того, чтобы наши `features` были перенесены с `feature` ветки на основновную необходимо выполнить merge:  
+```sh
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git merge feature_poem # находясь на ветке master используем команду
+# git merge <branch_name> ветки, изменения с которой надо перенести
+
+# видим информацию о merge
+Updating 329aab3..01424c0
+Fast-forward
+ poem.txt | 34 ++++++++++++++++++++++++++++++++++
+ 1 file changed, 34 insertions(+)
+ create mode 100644 poem.txt
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ ls # снова возвращаем список файлов
+README.md  
+css/  
+debug.log  
+poem.txt # после merge файл появился 
+rare_critical_logs.log  
+web_pages/
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ head -n 5 poem.txt
+У лукоморья дуб зелёный (отрывок из поэмы «Руслан и Людмила»)
+У лукоморья дуб зелёный;
+Златая цепь на дубе том:
+И днём и ночью кот учёный
+Всё ходит по цепи кругом;
+```
