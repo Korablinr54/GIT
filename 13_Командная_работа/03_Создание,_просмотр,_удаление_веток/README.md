@@ -45,3 +45,64 @@ $ git branch -vv
 * master       ae28ef0 [origin/master: ahead 3] Merge branch 'test_branch'
   test_branch  180fd0d add test file
 ```
+
+# git push с ветками
+Использовать команду git push можно также с дополнительными ключами и указанием конкретных веток:  
+```sh
+# использование команды по умолчанию пушит текущую ветку
+git push
+
+# проверим
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch -r
+  origin/HEAD -> origin/master
+  origin/master
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch -v
+  feature_poem 01424c0 add the poem
+* master       ae28ef0 [ahead 3] Merge branch 'test_branch'
+  test_branch  180fd0d add test file
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch -vv
+  feature_poem 01424c0 add the poem
+* master       ae28ef0 [origin/master: ahead 3] Merge branch 'test_branch'
+  test_branch  180fd0d add test file
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch -r
+  origin/HEAD -> origin/master
+  origin/master
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch -vv
+  feature_poem 01424c0 add the poem
+* master       ae28ef0 [origin/master: ahead 3] Merge branch 'test_branch'
+  test_branch  180fd0d add test file
+
+# можно одновременно запушить все ветки в удаленный репозиторий
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git push --all
+Enumerating objects: 9, done.
+Counting objects: 100% (9/9), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (7/7), done.
+Writing objects: 100% (7/7), 1.48 KiB | 1.48 MiB/s, done.
+Total 7 (delta 3), reused 0 (delta 0), pack-reused 0 (from 0)
+remote: Resolving deltas: 100% (3/3), completed with 2 local objects.
+To https://github.com/Korablinr54/first_project.git
+   329aab3..ae28ef0  master -> master
+ * [new branch]      feature_poem -> feature_poem
+ * [new branch]      test_branch -> test_branch
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch -r
+  origin/HEAD -> origin/master
+  origin/feature_poem
+  origin/master
+  origin/test_branch
+
+# либо мы можем пушить выбранные ветки
+git push origin branch1 branch2 branch3
+```
