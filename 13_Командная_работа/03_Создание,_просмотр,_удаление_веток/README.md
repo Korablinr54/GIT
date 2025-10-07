@@ -156,7 +156,7 @@ Switched to branch 'master'
 Your branch is up to date with 'origin/master'.
 ```
 
-# Практический пример
+## Практический пример
 
 Предположим, что у нас возникла ситуация, когда в ветке мастер появился баг и нам нужно найти коммит с багом, исправить его в отдельной ветке и влить фикс обратно в мастер:
 ```sh
@@ -354,3 +354,71 @@ $ ls
 some_bug_fix_file  # вот наш "фикс" в ветке мастер 
 #..
 ```
+
+# Удаление и переименование веток
+Удалять ветки можно двумя способами. Используяю ключи:  
+- `git branch -d <имя_ветки>` Безопасное удаление (только если изменения слиты)  
+- `git branch -D <имя_ветки>` Принудительное удаление (даже если не слито)
+
+
+## Практический пример
+Пример с использование ключа `-d`:  
+```sh
+#
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch
+  feature_poem
+  hotfix/branch_fix
+  hotfix/bug_fix # это удалим
+  hotgix/readme_fix
+* master
+  some_new_branch
+  test_branch
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git log --oneline --graph
+*   d7d2989 (HEAD -> master) Merge branch 'hotfix/bug_fix' # это удалим
+|\
+| * c447c64 (hotfix/bug_fix) some_bug_was_fixed # это удалим
+* | 791b642 (origin/master, origin/HEAD) some bug was fixed
+* |   ae28ef0 (origin/some_new_branch, some_new_branch) Merge branch 'test_branch'
+|\ \
+| * | 180fd0d (origin/test_branch, test_branch) add test file
+* | | 01424c0 (origin/feature_poem, feature_poem) add the poem
+* | | 329aab3 Update README.md
+* | | d2c1eb2 Rename README.MD to README.md
+* | | f0ac494 some minor change
+* | | 7f39bc7 add page3.html
+* | | f46590a add readme file
+* | | 2cc4e0b force adding debug.log
+| |/
+|/|
+* | 4cd50da add gitignore file
+* | 10f7044 (origin/hotfix/branch_fix, hotfix/branch_fix) move files to separate folders
+* | 8a51408 create folder for css styles
+|/
+* bea5ea0 rename index file
+* 7139d06 Revert "add some new features"
+* 59b19d0 Reapply "add some new features"
+* 7fd94af Revert "Reapply "add some new features""
+* 4b2413e Reapply "add some new features"
+* b0272be Revert "add some new features"
+* 9e59768 add some new features
+
+# удаляем ветку hotfix/bug_fix
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch -d hotfix/bug_fix
+Deleted branch hotfix/bug_fix (was c447c64).
+
+# ветка hotfix/bug_fix удалена 
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch
+  feature_poem
+  hotfix/branch_fix
+  hotgix/readme_fix
+* master
+  some_new_branch
+  test_branch
+```
+
+
