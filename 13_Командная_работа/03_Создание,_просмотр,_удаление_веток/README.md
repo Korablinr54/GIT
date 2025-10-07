@@ -362,6 +362,9 @@ some_bug_fix_file  # вот наш "фикс" в ветке мастер
 
 
 ## Практический пример
+
+### `-d`
+
 Пример с использование ключа `-d`:  
 ```sh
 #
@@ -421,4 +424,92 @@ $ git branch
   test_branch
 ```
 
+### `-D`
 
+Теперь посомтрим как работает удаление для неслитой ветки:
+```sh
+# проверяем список веток
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch
+  feature_poem
+  hotfix/branch_fix
+  hotgix/readme_fix
+* master
+  some_new_branch
+  test_branch
+
+# создаем новую ветку branch_-D
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git switch -c branch_-D
+Switched to a new branch 'branch_-D'
+
+# создаем файл в новой ветке
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (branch_-D)
+$ touch some_file
+
+# проверяем, что файл появился
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (branch_-D)
+$ ls
+README.md  css/  debug.log  poem.txt  rare_critical_logs.log  some_bug_fix_file  some_file  some_fix_file  test_branch_file  web_pages/
+
+# убеждаемся ,что нвоый файл не добавлен в индекс
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (branch_-D)
+$ git status
+On branch branch_-D
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        some_file
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+# добавляем его в индекс
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (branch_-D)
+$ git add .
+
+# коммитим
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (branch_-D)
+$ git commit -m 'some file test'
+[branch_-D 2cf6feb] some file test
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 some_file
+
+# возвращаемся на основную ветку
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (branch_-D)
+$ git switch master
+Switched to branch 'master'
+Your branch is ahead of 'origin/master' by 2 commits.
+  (use "git push" to publish your local commits)
+
+# пытаемся удалить не слитую ветку с ключом `-d` и получаем ошибку
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch -d branch_-D
+error: the branch 'branch_-D' is not fully merged
+hint: If you are sure you want to delete it, run 'git branch -D branch_-D'
+hint: Disable this message with "git config advice.forceDeleteBranch false"
+
+# посомтрим, убедимся, что новая ветка существует
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch
+  branch_-D # вот новая ветка
+  feature_poem
+  hotfix/branch_fix
+  hotgix/readme_fix
+* master
+  some_new_branch
+  test_branch
+
+# удаляем ее с ключом `-D`
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch -D branch_-D
+Deleted branch branch_-D (was 2cf6feb).
+
+# ветка удалена
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch
+  feature_poem
+  hotfix/branch_fix
+  hotgix/readme_fix
+* master
+  some_new_branch
+  test_branch
+```
