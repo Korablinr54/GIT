@@ -1,4 +1,5 @@
 # Просмотр списка веток
+
 Для отображения списка веток используется команда `git branch`:  
 ```sh
 user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
@@ -47,6 +48,7 @@ $ git branch -vv
 ```
 
 # git push с ветками
+
 Использовать команду git push можно также с дополнительными ключами и указанием конкретных веток:  
 ```sh
 # использование команды по умолчанию пушит текущую ветку
@@ -105,4 +107,51 @@ $ git branch -r
 
 # либо мы можем пушить выбранные ветки
 git push origin branch1 branch2 branch3
+```
+
+# Создание веток
+
+В самом общем виде команда `git branch` вернет список локальных веток. 
+```sh
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch
+  feature_poem
+* master
+  test_branch
+```
+
+<br>
+
+Для создания новой ветки нам нужно добавить ее имя. Обращаю внимание, что при создании новой ветки не происходит автоматического переключения как с командой `git checkout`:
+```sh
+# проверям список веток и видим, что их сейчас 3
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch
+  feature_poem
+* master
+  test_branch
+
+# создаем новую ветку
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch some_new_branch
+
+# снова проверяем список и видим, что уже 4 ветки вместо 3
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch
+  feature_poem
+* master
+  some_new_branch
+  test_branch
+
+# переключаемся на новую ветку
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git switch some_new_branch
+Switched to branch 'some_new_branch'
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (some_new_branch) # переключение прошло успешно
+
+# переключаемся обратно
+$ git switch -
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
 ```
