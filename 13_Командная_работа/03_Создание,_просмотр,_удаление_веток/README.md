@@ -533,3 +533,24 @@ $ git branch -m main master
 user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
 $
 ```
+
+# Поиск ветки по названию
+
+Мы также можем выполнить поиска ветки по названию:  
+```sh
+# вернем полынй список веток
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch
+  feature_poem
+  hotfix/branch_fix
+  hotgix/readme_fix
+* master
+  some_new_branch
+  test_branch
+
+# а теперь только те, в названии которых содержится подстрока fix
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch --list '*fix*'
+  hotfix/branch_fix
+  hotgix/readme_fix
+```
