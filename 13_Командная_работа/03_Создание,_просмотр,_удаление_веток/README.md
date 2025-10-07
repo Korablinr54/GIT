@@ -426,7 +426,8 @@ $ git branch
 
 ### `-D`
 
-Теперь посомтрим как работает удаление для неслитой ветки:
+Теперь посомтрим как работает удаление для неслитой ветки.  
+Удаление ветки `-D` необратимо (если только коммит не сохранён в другой ветке).:  
 ```sh
 # проверяем список веток
 user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
@@ -512,4 +513,23 @@ $ git branch
 * master
   some_new_branch
   test_branch
+```
+
+# Переименвоание ветки
+
+Ветку можно переименовать двумя сценариями:  
+- `git branch -m <старое_имя> <новое_имя>` переименовать конкретную ветку  
+- `git branch -m <новое_имя>` переименвоать текущую ветку  
+```sh
+# переименуем ветку master в main
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git branch -m master main
+
+# переименование выполнено успешно, это видно по строке с приглашением
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (main) # новое имя ветки
+$ git branch -m main master
+
+# переименуем обратно в master
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$
 ```
