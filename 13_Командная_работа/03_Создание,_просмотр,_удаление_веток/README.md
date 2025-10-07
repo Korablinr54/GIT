@@ -160,6 +160,197 @@ Your branch is up to date with 'origin/master'.
 
 Предположим, что у нас возникла ситуация, когда в ветке мастер появился баг и нам нужно найти коммит с багом, исправить его в отдельной ветке и влить фикс обратно в мастер:
 ```sh
-#
+# возвращаем список коммитов
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git log --oneline --graph
+* 791b642 (HEAD -> master, origin/master, origin/HEAD) some bug was fixed
+*   ae28ef0 (origin/some_new_branch, some_new_branch) Merge branch 'test_branch'
+|\
+| * 180fd0d (origin/test_branch, test_branch) add test file
+* | 01424c0 (origin/feature_poem, feature_poem) add the poem
+* | 329aab3 Update README.md
+* | d2c1eb2 Rename README.MD to README.md
+* | f0ac494 some minor change
+* | 7f39bc7 add page3.html
+* | f46590a add readme file
+* | 2cc4e0b force adding debug.log
+* | 4cd50da add gitignore file
+* | 10f7044 (origin/hotfix/branch_fix, hotfix/branch_fix) move files to separate folders
+* | 8a51408 create folder for css styles
+|/
+* bea5ea0 rename index file
+* 7139d06 Revert "add some new features"
+* 59b19d0 Reapply "add some new features"
+* 7fd94af Revert "Reapply "add some new features""
+* 4b2413e Reapply "add some new features"
+* b0272be Revert "add some new features"
+* 9e59768 add some new features
+* 8a8b14c refactor css styles
+* ca3a6b1 add css styles
+* e4de21c add new paragraph
+* 0e47d61 add page2
+* 55f77dc add page1.html
 
+# переключаемся между коммитами, имитируем поиск бага
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git checkout 7f39bc7
+Note: switching to '7f39bc7'.
+
+You are in 'detached HEAD' state. You can look around, make experimental
+changes and commit them, and you can discard any commits you make in this
+state without impacting any branches by switching back to a branch.
+
+If you want to create a new branch to retain commits you create, you may
+do so (now or later) by using -c with the switch command. Example:
+
+  git switch -c <new-branch-name>
+
+Or undo this operation with:
+
+  git switch -
+
+Turn off this advice by setting config variable advice.detachedHead to false
+
+HEAD is now at 7f39bc7 add page3.html
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project ((7f39bc7...))
+$ ls
+README.MD  css/  debug.log  rare_critical_logs.log  web_pages/
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project ((7f39bc7...))
+$ git checkout 4cd50da
+Previous HEAD position was 7f39bc7 add page3.html
+HEAD is now at 4cd50da add gitignore file
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project ((4cd50da...))
+$ ls
+css/  rare_critical_logs.log  web_pages/
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project ((4cd50da...))
+$ cat some_fixe_file
+cat: some_fixe_file: No such file or directory
+
+# найдя баг возвращаемся к последнему коммиту ветки мастер
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project ((4cd50da...))
+$ git checkout master
+Previous HEAD position was 4cd50da add gitignore file
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+# проверяем, что вернулись к последнему коммиту
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git log --oneline --graph
+* 791b642 (HEAD -> master, origin/master, origin/HEAD) some bug was fixed
+
+# ...лишнее вырежем
+
+# создаем новую ветку от последнего здорового коммита
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git switch -c hotfix/bug_fix 4cd50da
+Switched to a new branch 'hotfix/bug_fix'
+
+# убеждаемся ,что последний здоровый коммит в нововй ветке является последним
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (hotfix/bug_fix)
+$ git log --oneline --graph
+* 4cd50da (HEAD -> hotfix/bug_fix) add gitignore file
+* 10f7044 (origin/hotfix/branch_fix, hotfix/branch_fix) move files to separate folders
+* 8a51408 create folder for css styles
+* bea5ea0 rename index file
+* 7139d06 Revert "add some new features"
+* 59b19d0 Reapply "add some new features"
+* 7fd94af Revert "Reapply "add some new features""
+* 4b2413e Reapply "add some new features"
+* b0272be Revert "add some new features"
+* 9e59768 add some new features
+* 8a8b14c refactor css styles
+* ca3a6b1 add css styles
+* e4de21c add new paragraph
+* 0e47d61 add page2
+* 55f77dc add page1.html
+
+# проводим манипуляции, имитируем работу по фиксу бага
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (hotfix/bug_fix)
+$ touch some_bug_fix_file
+
+# првоеряем статус, вимидм, что в индекс фикс не попал
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (hotfix/bug_fix)
+$ git status
+On branch hotfix/bug_fix
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        some_bug_fix_file
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+# добавляем результат работы в индекс
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (hotfix/bug_fix)
+$ git add .
+
+# коммитим
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (hotfix/bug_fix)
+$ git commit -m 'some_bug_was_fixed'
+[hotfix/bug_fix c447c64] some_bug_was_fixed
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 some_bug_fix_file
+
+# возвращаемся на ветку мастер
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (hotfix/bug_fix)
+$ git checkout master
+Switched to branch 'master'
+Your branch is up to date with 'origin/master'.
+
+# првоеряем, что вернулись обратно
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git log --oneline --graph
+# ... лишнее сократим
+
+# мерджим мастер и фикс
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git merge hotfix/bug_fix
+hint: Waiting for your editor to close the file... unix2dos: converting file C:/Users/user/git_learn/first_project/.git/MERGE_MSG to DOS format...
+dos2unix: converting file C:/Users/user/git_learn/first_project/.git/MERGE_MSG to Unix format...
+Merge made by the 'ort' strategy.
+ some_bug_fix_file | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 some_bug_fix_file
+
+# проверяем. появилась вторая ветка с фиксом
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ git log --oneline --graph
+*   d7d2989 (HEAD -> master) Merge branch 'hotfix/bug_fix'
+|\
+| * c447c64 (hotfix/bug_fix) some_bug_was_fixed
+* | 791b642 (origin/master, origin/HEAD) some bug was fixed
+* |   ae28ef0 (origin/some_new_branch, some_new_branch) Merge branch 'test_branch'
+|\ \
+| * | 180fd0d (origin/test_branch, test_branch) add test file
+* | | 01424c0 (origin/feature_poem, feature_poem) add the poem
+* | | 329aab3 Update README.md
+* | | d2c1eb2 Rename README.MD to README.md
+* | | f0ac494 some minor change
+* | | 7f39bc7 add page3.html
+* | | f46590a add readme file
+* | | 2cc4e0b force adding debug.log
+| |/
+|/|
+* | 4cd50da add gitignore file
+* | 10f7044 (origin/hotfix/branch_fix, hotfix/branch_fix) move files to separate folders
+* | 8a51408 create folder for css styles
+|/
+* bea5ea0 rename index file
+* 7139d06 Revert "add some new features"
+* 59b19d0 Reapply "add some new features"
+* 7fd94af Revert "Reapply "add some new features""
+* 4b2413e Reapply "add some new features"
+* b0272be Revert "add some new features"
+* 9e59768 add some new features
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn/first_project (master)
+$ ls
+#..
+some_bug_fix_file  # вот наш "фикс" в ветке мастер 
+#..
 ```
