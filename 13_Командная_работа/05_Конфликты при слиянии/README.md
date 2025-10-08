@@ -264,5 +264,139 @@ $ git log --oneline --graph --all -5
 
 Возможна ситуация, в которой категоричное решение "только наш код" или "только их код" не подходит. Например нам нужно оставить изменения из двух веток или оставить только часть изменений и что-то поправить урками. В таком случае нам нужно разрешить конфликт в ручном режиме. Давайте сэмитируем такую ситуацию:  
 ```sh
+# смотрим на текущее состояние репозитория
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master)
+$ git log --oneline --graph --all -5
+* 4d2551a (HEAD -> master) main branch fix
+| * dae37f0 (new_feature) new features
+|/
+* 329aab3 (origin/master) Update README.md
+* d2c1eb2 Rename README.MD to README.md
+* f0ac494 some minor change
 
+# мерджим и получаем сообщения о конфликтах
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master)
+$ git merge new_feature
+Auto-merging web_pages/page2.html
+CONFLICT (content): Merge conflict in web_pages/page2.html
+CONFLICT (modify/delete): web_pages/page3.html deleted in HEAD and modified in new_feature.  Version new_feature of web_pages/page3.html left in tree.
+Automatic merge failed; fix conflicts and then commit the result.
+
+# смотрим на отличия в файлах
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master|MERGING)
+$ git diff
+diff --cc web_pages/page2.html
+index c817325,bd9cabd..0000000
+--- a/web_pages/page2.html
++++ b/web_pages/page2.html
+@@@ -7,6 -7,7 +7,11 @@@
+        <body>
+                <h1>This is a Heading of page 2</h1>
+                <p>This is a paragraph.</p>
+++<<<<<<< HEAD
+ +              <p>This is a bug.</p>
+++=======
++               <p>This is a paragraph.</p>
++               <p>This is a paragraph.</p>
+++>>>>>>> new_feature
+        </body>
+  </html>
+* Unmerged path web_pages/page3.html
+
+# в ручном режиме редактируем
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master|MERGING)
+$ nano web_pages/page2.html
+
+# nano --------------------
+# исходное состояние
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Page 2 Title</title>
+                <link rel="stylesheet" href="/css/styles.css">
+        </head>
+        <body>
+                <h1>This is a Heading of page 2</h1>
+                <p>This is a paragraph.</p>
+<<<<<<< HEAD
+                <p>This is a bug.</p>
+=======
+                <p>This is a paragraph.</p>
+                <p>This is a paragraph.</p>
+>>>>>>> new_feature
+        </body>
+</html>
+
+# после ручных правок
+# в конечной версии не должно быть меток
+# <<<<<<< ======= >>>>>>>
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Page 2 Title</title>
+                <link rel="stylesheet" href="/css/styles.css">
+        </head>
+        <body>
+                <h1>This is a Heading of page 2</h1>
+                <p>This is a paragraph.</p>
+        </body>
+</html>
+# nano --------------------
+
+# убеждаемся, что гит видит изменения
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add/rm <file>..." as appropriate to mark resolution)
+        both modified:   web_pages/page2.html
+        deleted by us:   web_pages/page3.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+# добавляем в индекс
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master|MERGING)
+$ git add .
+
+# коммитим
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master|MERGING)
+$ git commit -m 'the conflict was resolved'
+[master b0b10e5] the conflict was resolved
+
+# проверяем
+# слияние выполнено успешно
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master)
+$ git log --oneline --graph -5
+*   b0b10e5 (HEAD -> master) the conflict was resolved
+|\
+| * dae37f0 (new_feature) new features
+* | 4d2551a main branch fix
+|/
+* 329aab3 (origin/master) Update README.md
+* d2c1eb2 Rename README.MD to README.md
+
+# смотрим на получившийся код в файле конфликта
+# то, что мы правили в ручном режиме
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master)
+$ cat web_pages/page2.html
+<!DOCTYPE html>
+<html>
+        <head>
+                <title>Page 2 Title</title>
+                <link rel="stylesheet" href="/css/styles.css">
+        </head>
+        <body>
+                <h1>This is a Heading of page 2</h1>
+                <p>This is a paragraph.</p>
+        </body>
+</html>
+
+# удаленный файл в главной также приехал из второй ветки
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master)
+$ ls web_pages/
+index.html  page2.html  page3.html
 ```
