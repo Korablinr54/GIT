@@ -206,3 +206,57 @@ $ cat web_pages/page2.html
         </body>
 </html>
 ```
+
+## Отмена слияния
+Уместно упомянуть, что мы можем отменить начатое слияние командой `git merge --abort`. Давайте это продемонстрируем:  
+```sh
+# взглянем на текущее состояние репозитория
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master)
+$ git log --oneline --graph -5
+*   a8d0fd6 (HEAD -> master) solve conflict
+|\
+| * dae37f0 (new_feature) new features
+* | 4d2551a main branch fix
+|/
+* 329aab3 (origin/master) Update README.md
+* d2c1eb2 Rename README.MD to README.md
+
+# откатимся на один коммит назад, до слияния
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master)
+$ git reset --hard HEAD~1
+HEAD is now at 4d2551a main branch fix
+
+# видим два параллельных коммита еще не слиты в одну ветку
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master)
+$ git log --oneline --graph --all -5
+* 4d2551a (HEAD -> master) main branch fix
+| * dae37f0 (new_feature) new features
+|/
+* 329aab3 (origin/master) Update README.md
+* d2c1eb2 Rename README.MD to README.md
+* f0ac494 some minor change
+
+# начинаем мерджить и получаем сообщение о конфликтах
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master)
+$ git merge new_feature
+Auto-merging web_pages/page2.html
+CONFLICT (content): Merge conflict in web_pages/page2.html
+CONFLICT (modify/delete): web_pages/page3.html deleted in HEAD and modified in new_feature.  Version new_feature of web_pages/page3.html left in tree.
+Automatic merge failed; fix conflicts and then commit the result.
+
+# отменяем начатое слияние
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master|MERGING) # изменена строка приглашения
+$ git merge --abort
+
+# смотрим, что вернулись в состояние до начала слияния
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master) # строка приглашения вернулась
+$ git log --oneline --graph --all -5
+* 4d2551a (HEAD -> master) main branch fix
+| * dae37f0 (new_feature) new features
+|/
+* 329aab3 (origin/master) Update README.md
+* d2c1eb2 Rename README.MD to README.md
+* f0ac494 some minor change
+```
+
+## Ручное решение конфликта
