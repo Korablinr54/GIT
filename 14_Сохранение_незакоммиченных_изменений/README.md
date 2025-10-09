@@ -150,4 +150,164 @@ user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (new_feature)
 $ git stash list
 stash@{0}: WIP on new_feature: dae37f0 new features
 
+# переключаемся на основную ветку и вносим изменения 
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (new_feature)
+$ git switch master
+Switched to branch 'master'
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master)
+$ echo Hello! >> web_pages/page2.html
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master)
+$ git add .
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master)
+$ git commit -m'web pages2 fix'
+[master cefd147] web pages2 fix
+ 1 file changed, 1 insertion(+)
+
+# возвращаемся на нашу вторую, исходную ветку
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master)
+$ git switch new_feature
+Switched to branch 'new_feature'
+
+# убеждаемся, что нашего нового файла нет
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (new_feature)
+$ ls
+README.md  css/  debug.log  rare_critical_logs.log  web_pages/
+
+# в списке stash есть сохраненные изменения. вернем их
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (new_feature)
+$ git stash list
+stash@{0}: WIP on new_feature: dae37f0 new features
+
+# удаляем stash и возвращаем изменения
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (new_feature)
+$ git stash pop
+Already up to date.
+On branch new_feature
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        new_file
+
+nothing added to commit but untracked files present (use "git add" to track)
+Dropped refs/stash@{0} (d9b2ab3b2a7d2f64ab1994740091bca1725bb9d5)
+
+# файл появился
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (new_feature)
+$ ls
+# ..
+new_file
+# ..
+
+# гит его видит как неотслеживаемый
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (new_feature)
+$ git status
+On branch new_feature
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        new_file
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+# добавляем в индекс и комитим
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (new_feature)
+$ git add .
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (new_feature)
+$ git commit -m'stash test'
+[new_feature 5d669bc] stash test
+ 1 file changed, 1 insertion(+)
+ create mode 100644 new_file
+
+# затем переключаемся на мастер для выполнения слияния
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (new_feature)
+$ git switch master
+Switched to branch 'master'
+
+# мерджим
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (new_feature)
+$ git switch master
+Switched to branch 'master'
+
+# получаем уведомление о конфликте
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master)
+$ git merge new_feature
+Auto-merging web_pages/page2.html
+CONFLICT (content): Merge conflict in web_pages/page2.html # меняли параллельно в мастер этот файл
+CONFLICT (modify/delete): web_pages/page3.html deleted in HEAD and modified in new_feature.  Version new_feature of web_pages/page3.html left in tree. # не слит (Unmerged path)
+Automatic merge failed; fix conflicts and then commit the result.
+
+# взглянем на конфликт детальнее
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master|MERGING)
+$ git diff
+diff --cc web_pages/page2.html
+index a48cc04,bd9cabd..0000000
+--- a/web_pages/page2.html
++++ b/web_pages/page2.html
+@@@ -7,7 -7,7 +7,12 @@@
+        <body>
+                <h1>This is a Heading of page 2</h1>
+                <p>This is a paragraph.</p>
+++<<<<<<< HEAD
+ +              <p>This is a bug.</p>
+++=======
++               <p>This is a paragraph.</p>
++               <p>This is a paragraph.</p>
+++>>>>>>> new_feature
+        </body>
+  </html>
+ +Hello!
+* Unmerged path web_pages/page3.html
+
+# принимаем решение использовать код из сливаемой ветки
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master|MERGING)
+$ git checkout --theirs .
+Updated 2 paths from the index
+
+# проверяем гит статус
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Changes to be committed:
+        new file:   new_file # конфликт решен
+
+Unmerged paths:
+  (use "git add/rm <file>..." as appropriate to mark resolution)
+        both modified:   web_pages/page2.html
+        deleted by us:   web_pages/page3.html #  в текущей ветке (master) этот файл удален но в ветке new_feature он существует
+
+# коммитим
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master|MERGING)
+$ git add .
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master|MERGING)
+$ git commit -m 'stash merge'
+[master 4265183] stash merge
+
+# проверяем. все выполнено успешно
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master)
+$ user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master|MERGING)
+$ git add .
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master|MERGING)
+$ git commit -m 'stash merge'^C
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master)
+$ git log --oneline --graph -5
+*   4265183 (HEAD -> master) stash merge
+|\
+| * 5d669bc (new_feature) stash test
+| * dae37f0 new features
+* | cefd147 web pages2 fix
+* | 4d2551a main branch fix
+|/
+
+user@WIN-CVKT899RCS2 MINGW64 ~/git_learn (master)
+$ ls
+README.md  css/  debug.log  new_file  rare_critical_logs.log  web_pages/
 ```
