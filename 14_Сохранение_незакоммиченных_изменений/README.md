@@ -35,11 +35,16 @@ git stash list
 Восстанавливает последний stash и удаляет его из списка.
 ```sh
 git stash pop
+git stash pop stash@{index}
+
+# stash@{<index>} для конкретного stash
 ```
 
 Восстанавливает последний stash, но не удаляет его из списка.
 ```sh
 git stash apply
+
+# stash@{<index>} для конкретного stash
 ```
 
 **Пример**:
@@ -57,6 +62,7 @@ git stash show -p # показывает полную diff-информацию
 
 git stash show stash@{<index>}    # для отображения содержимого конкретного стеша по его индексу из вывода команды `git stash list` 
 ```
+
 ## Сохранение с именем
 
 ```sh
@@ -68,6 +74,8 @@ git stash save "описание изменений"
 ```sh
 git stash drop     # удаляет последний stash
 git stash clear    # удаляет все stash'и
+
+# stash@{<index>} также применим
 ```
 
 # Практический пример
